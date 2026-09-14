@@ -1,0 +1,15 @@
+{
+  "name": "00-api-hola-mundo",
+  "version": "1.0.0",
+  "description": "API Hola Mundo",
+  "license": "ISC",
+  "author": "Benjamin Gramajo",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
