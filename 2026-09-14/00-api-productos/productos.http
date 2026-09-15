@@ -3,14 +3,11 @@
 ### Listado de productos
 GET {{url}}/productos
 
-### Listado de productos filtrado por precio minimo
-GET {{url}}/productos?precioMin=10.1
+### Listado de productos filtrado por precio mínimo y precio máximo
+GET {{url}}/productos?precioMin=4&precioMax=20
 
-### Listado de productos filtrado por producto
+### Listado de productos filtrado por nombre de producto
 GET {{url}}/productos?productoNombre=et
-
-### Listado de productos filtrado por precio minimo y producto
-GET {{url}}/productos?productoNombre=et&precioMin=6
 
 ### Detalles de producto
 GET {{url}}/productos/3
@@ -51,4 +48,23 @@ content-type: application/json
 
 ### 
 
+GET {{url}}/productos
+
+### Agregar otro producto PERO con id 3 (no se puede, por defecto se crea con id autoincremental)
+
+POST {{url}}/productos
+content-type: application/json
+
+{
+  "id": 3,
+  "producto": "Tomate",
+  "cantidad": 10,
+  "precio": 1
+}
+
+
+
+###
+DELETE {{url}}/productos/8
+### 
 GET {{url}}/productos
