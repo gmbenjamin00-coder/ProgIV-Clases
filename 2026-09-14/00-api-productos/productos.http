@@ -6,8 +6,6 @@ GET {{url}}/productos
 ### Listado de productos filtrado por precio mínimo y precio máximo
 GET {{url}}/productos?precioMin=4&precioMax=20
 
-### Listado de productos filtrado por nombre de producto
-GET {{url}}/productos?productoNombre=et
 
 ### Detalles de producto
 GET {{url}}/productos/3

@@ -53,8 +53,8 @@ app.get("/productos", (req, res) => {
 app.get("/productos/:id", (req, res) => {
   // Extraigo el id de los parametros de la ruta
 
-  // Validar id (solo si es un numero positivo)
   const id = Number(req.params.id);
+  // Validar id (solo si es un numero positivo)
 
   const producto = productos.find((p) => p.id === id);
 
