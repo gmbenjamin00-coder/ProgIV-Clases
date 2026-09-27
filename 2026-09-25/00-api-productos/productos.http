@@ -11,21 +11,21 @@ POST {{url}}/productos
 Content-Type: application/json
 
 {
-    "producto": "Manzana",
-    "precio": 1
+    "nombre": "Pomelo",
+    "cantidad": 11
 }
 
 ### Modificar producto
-PUT {{url}}/productos/3
+PUT {{url}}/productos/5
 Content-Type: application/json
 
 {
-  "producto": "Jaboooooon",
+  "nombre": "Jaboooooon",
   "cantidad": 30
 }
 
 ### Quitar producto
-DELETE {{url}}/productos/3
+DELETE {{url}}/productos/7
 
 ### Agregar otro producto
 
@@ -33,7 +33,7 @@ POST {{url}}/productos
 content-type: application/json
 
 {
-  "producto": "Huevos",
+  "nombre": "Huevos",
   "cantidad": 3
 }
 
@@ -47,15 +47,13 @@ POST {{url}}/productos
 content-type: application/json
 
 {
-  "id": 3,
-  "producto": "Tomate",
-  "cantidad": 10,
-  "precio": 1
+  "nombre": "Carne",
+  "cantidad": 10
 }
 
 
 
 ###
-DELETE {{url}}/productos/8
+DELETE {{url}}/productos/9
 ### 
 GET {{url}}/productos

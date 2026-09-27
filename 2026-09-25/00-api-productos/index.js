@@ -35,8 +35,7 @@ app.get("/productos", async (req, res) => {
 
 // GET para entregar detalle de producto
 app.get("/productos/:id", async (req, res) => {
-  // Extraigo el id de los parametros de la ruta
-
+  // Validar id
   const id = Number(req.params.id);
 
   const [productos] = await db.execute("SELECT * FROM productos WHERE id=?", [
@@ -52,42 +51,46 @@ app.get("/productos/:id", async (req, res) => {
 
 // POST para crear producto
 app.post("/productos", async (req, res) => {
-  // Extraigo del body los atributos del nuevo producto
-  const { producto, cantidad } = req.body;
-
   // Validar los atributos de body
+  const { nombre, cantidad } = req.body;
+
+  const [result] = await db.execute(
+    "INSERT INTO productos (nombre, cantidad) VALUES (?,?)",
+    [nombre, cantidad],
+  );
+
   // Envio respuesta
-  //res.status(201).send(nuevoProducto);
+  res.status(201).send({ id: result.insertId, nombre, cantidad });
 });
 
 // PUT para modificar producto a partir de un id
-app.put("/productos/:id", (req, res) => {
-  // Extraigo el id de los parametros de la ruta
-  const id = Number(req.params.id);
+app.put("/productos/:id", async (req, res) => {
   // Validar id
-
-  // Verificar que este presente el producto
-
+  const id = Number(req.params.id);
   // Validar el body
-  const { producto, cantidad } = req.body;
-  // Verificar que existan los campos obligatorios
+  const { nombre, cantidad } = req.body;
 
-  // Responder con producto modificado
-  //res.send(productoEncontrado);
+  const [UpdateProducto] = await db.execute(
+    "UPDATE productos SET nombre = ?, cantidad = ? WHERE id= ?",
+    [nombre, cantidad, id],
+  );
+
+  //Envío respuesta
+  res.status(201).send({ id: UpdateProducto.insertId, id, nombre, cantidad });
 });
 
 // DELETE para quitar un producto a partir de un id
-app.delete("/productos/:id", (req, res) => {
-  // Extraigo el id de los parametros de la ruta
-  const id = Number(req.params.id);
+app.delete("/productos/:id", async (req, res) => {
   // Validar id
+  const id = Number(req.params.id);
 
-  // Verificar que este presente el producto
+  const [DeleteProducto] = await db.execute(
+    "DELETE FROM productos WHERE id=?",
+    [id],
+  );
 
-  // Quitar del arreglo
-
-  // Retornar producto quitado
-  //res.send(productoEncontrado);
+  //Envío respuesta
+  res.status(201).send("Producto eliminado correctamente");
 });
 
 app.listen(port, () => {
