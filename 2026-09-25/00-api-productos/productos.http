@@ -1,0 +1,61 @@
+@url=http://localhost:3000
+
+### Listado de productos
+GET {{url}}/productos
+
+### Detalles de producto
+GET {{url}}/productos/3
+
+### Crear producto
+POST {{url}}/productos
+Content-Type: application/json
+
+{
+    "producto": "Manzana",
+    "precio": 1
+}
+
+### Modificar producto
+PUT {{url}}/productos/3
+Content-Type: application/json
+
+{
+  "producto": "Jaboooooon",
+  "cantidad": 30
+}
+
+### Quitar producto
+DELETE {{url}}/productos/3
+
+### Agregar otro producto
+
+POST {{url}}/productos
+content-type: application/json
+
+{
+  "producto": "Huevos",
+  "cantidad": 3
+}
+
+### 
+
+GET {{url}}/productos
+
+### Agregar otro producto PERO con id 3 (no se puede, por defecto se crea con id autoincremental)
+
+POST {{url}}/productos
+content-type: application/json
+
+{
+  "id": 3,
+  "producto": "Tomate",
+  "cantidad": 10,
+  "precio": 1
+}
+
+
+
+###
+DELETE {{url}}/productos/8
+### 
+GET {{url}}/productos
