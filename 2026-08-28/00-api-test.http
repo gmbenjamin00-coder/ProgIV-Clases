@@ -1,0 +1,13 @@
+@url = http://jsonplaceholder.typicode.com 
+
+GET {{url}}/users
+
+###
+GET {{url}}/users/9
+
+###
+DELETE {{url}}/users/1
+
+###
+
+GET {{url}}/users

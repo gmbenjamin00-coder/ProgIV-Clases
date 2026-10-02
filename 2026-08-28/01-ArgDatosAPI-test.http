@@ -1,0 +1,11 @@
+@url = https://api.argentinadatos.com 
+
+GET {{url}}/v1/feriados/2026
+
+###
+
+GET {{url}}/v1/feriados/2025
+
+###
+
+GET {{url}}/v1/presidentes
